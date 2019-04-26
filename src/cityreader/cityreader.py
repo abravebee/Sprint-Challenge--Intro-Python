@@ -140,13 +140,49 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+coord1 = input('Enter: lat1,lon1\n' 
+        '>  ').split(',')
+coord2 = input('Enter: lat2,lon2\n' 
+        '>  ').split(',')
+
+try:
+    lat1, lon1 = [coord1[0], coord1[1]]
+    lat2, lon2 = [coord2[0], coord2[1]]
+except:
+    print('Something went wrong with input variable assignment.\n' 
+        'Make sure your inputs are numbers separated by a comma with no spaces and try again.')
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  within = []
+    within = []
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
+    try:
+        lat1 = float(lat1)
+        lon1 = float(lon1)
+        lat2 = float(lat2)
+        lon2 = float(lon2)
+        print("Float success")
+    except:
+        print('Something went wrong with the float cast.\n' 
+            'Make sure your inputs are numbers separated by a comma with no spaces and try again.')
 
-  return within
+    test = [
+        City("Test1", 1, 5),
+        City("Test2", 11, 10),
+        City("Test1", -21, -5),
+    ]
+    for c in test:
+        if float(c.lat) in frange(lat1,lat2,'0.1'):
+            within.append(f'{c.name}: {c.lat}, {c.lon}')
+
+    print(within)
+    return within
+
+# try:
+cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+# except:
+#     print('Something went wrong with calling the function.\n' 
+#     'Make sure your inputs are numbers separated by a comma with no spaces and try again.')
