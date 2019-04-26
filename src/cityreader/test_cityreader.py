@@ -6,10 +6,10 @@ def check_city(inp, exp):
         print(f'WRONG NAME. EXPECTED: {exp.name}, GOT: {inp.name}')
         return False
     if inp.lat != exp.lat:
-        print(f'WRONG LAT. EXPECTED: {exp.lat}, GOT: {inp.lat}')
+        print(f'WRONG LAT. EXPECTED:', type(exp.lat), f'GOT:', type(inp.lat))
         return False
     if inp.lon != exp.lon:
-        print(f'WRONG LAT. EXPECTED: {exp.lat}, GOT: {inp.lat}')
+        print(f'WRONG LON. EXPECTED: {exp.lon}, GOT: {inp.lon}')
         return False
     return True
 

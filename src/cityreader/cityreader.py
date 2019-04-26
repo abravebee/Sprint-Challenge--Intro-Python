@@ -9,7 +9,7 @@ class City:
 
     def __repr__(self):
         return f"City({self.name}, {self.lat}, {self.lon})"
-        
+
 expected = [
       City("Seattle", 47.6217,-122.3238),
       City("Richmond", 37.5294,-77.4755),
@@ -97,11 +97,11 @@ def cityreader(cities=[]):
         citiesread = csv.DictReader(citiesfile)
         
         for row in citiesread:
-            instance = City(row['city'], row['lat'], row['lng'])
+            instance = City(row['city'], float(row['lat']), float(row['lng']))
             cities.append(instance)
 
     print('CITIES[0]', cities[0], type(cities[0]))
-    print('EXPECTED[0]', City("Seattle", 47.6217,-122.3238), type(City("Seattle", 47.6217,-122.3238)))
+    print('EXPECTED[0]', expected[0], type(expected[0]))
     return cities
 
 cityreader(cities)
